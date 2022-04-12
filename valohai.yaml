@@ -1,0 +1,5 @@
+- step:
+    name: train
+    image: python:3.9
+    command:
+        - echo "Hello World!"
