@@ -38,6 +38,9 @@ new_exec_payload = {
         "epochs": 5
     }
 }
+
+print("Sending request:")
+print(new_exec_payload)
  
 # Send a POST request to create a new execution
 createExecutionResponse = requests.post('https://app.valohai.com/api/v0/executions/', data=new_exec_payload, headers=headers)
