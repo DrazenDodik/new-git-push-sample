@@ -7,7 +7,7 @@ import os
 auth_token = os.getenv('VH_API_TOKEN')
 headers = {'Authorization': 'Token %s' % auth_token}
 project_id = '01801ef9-ca55-dd02-af46-6978e6f2776d'
-step_name = 'trainmodel'
+step_name = 'train-model'
  
 # Fetch all new changes from the repository
 # https://app.valohai.com/api/docs/#projects-fetch
@@ -25,9 +25,7 @@ new_exec_payload = {
     "project": project_id,
     "commit": os.getenv('GITHUB_SHA'),
     "step": step_name,
-    "inputs": {
-        "dataset": "https://valohaidemo.blob.core.windows.net/mnist/preprocessed_mnist.npz"
-    },
+    "inputs": {"dataset": "https://valohaidemo.blob.core.windows.net/mnist/preprocessed_mnist.npz"},
     "parameters": {
         "batch_size": 32,
         "image_width": 160,
