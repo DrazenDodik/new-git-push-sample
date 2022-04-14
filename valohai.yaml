@@ -1,5 +1,46 @@
 - step:
-    name: train
-    image: python:3.9
+    name: train-model
+    image: tensorflow/tensorflow:2.6.0
     command:
-        - echo "Hello World!"
+    - pip install -r requirements.txt
+    - python ./sandbox_2.py {parameters}
+    parameters:
+    - name: batch_size
+      default: 32
+      multiple-separator: ','
+      optional: false
+      type: integer
+    - name: image_width
+      default: 160
+      multiple-separator: ','
+      optional: false
+      type: integer
+    - name: image_height
+      default: 160
+      multiple-separator: ','
+      optional: false
+      type: integer
+    - name: image_channels
+      default: 3
+      multiple-separator: ','
+      optional: false
+      type: integer
+    - name: learning_rate
+      default: 0.0001
+      multiple-separator: ','
+      optional: false
+      type: float
+    - name: metrics
+      default: accuracy
+      multiple-separator: ','
+      optional: false
+      type: string
+    - name: epochs
+      default: 5
+      multiple-separator: ','
+      optional: false
+      type: integer
+    inputs:
+    - name: dataset
+      default: https://valohaidemo.blob.core.windows.net/mnist/preprocessed_mnist.npz
+      optional: false
