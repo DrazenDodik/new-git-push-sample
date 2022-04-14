@@ -2,7 +2,7 @@
 FROM python:3.8.2-slim-buster
  
 # Our code will need requests, so we can install them on the image with pip
-RUN pip install requests
+RUN pip install requests valohai-utils
  
 # Add our file and run it
 ADD runExecution.py /runExecution.py
