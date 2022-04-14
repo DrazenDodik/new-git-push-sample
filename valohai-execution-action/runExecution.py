@@ -7,7 +7,7 @@ import os
 auth_token = os.getenv('VH_API_TOKEN')
 headers = {'Authorization': 'Token %s' % auth_token}
 project_id = '01801ef9-ca55-dd02-af46-6978e6f2776d'
-step_name = 'train-model'
+step_name = 'trainmodel'
  
 # Fetch all new changes from the repository
 # https://app.valohai.com/api/docs/#projects-fetch

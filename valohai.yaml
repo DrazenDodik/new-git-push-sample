@@ -1,5 +1,5 @@
 - step:
-    name: train-model
+    name: trainmodel
     image: tensorflow/tensorflow:2.6.0
     command:
     - pip install -r requirements.txt
