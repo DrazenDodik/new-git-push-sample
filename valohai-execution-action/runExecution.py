@@ -24,7 +24,21 @@ fetchResponse.raise_for_status()
 new_exec_payload = {
     "project": project_id,
     "commit": os.getenv('GITHUB_SHA'),
-    "step": step_name
+    "step": step_name,
+    "inputs": {
+        "dataset": [
+            "https://valohaidemo.blob.core.windows.net/mnist/preprocessed_mnist.npz"
+        ]
+    },
+    "parameters": {
+        "batch_size": 32,
+        "image_width": 160,
+        "image_height": 160,
+        "image_channels": 3,
+        "learning_rate": 0.0001,
+        "metrics": "accuracy",
+        "epochs": 5
+    },
 }
 
 print(new_exec_payload)
