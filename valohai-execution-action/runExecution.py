@@ -36,7 +36,7 @@ new_exec_payload = {
         "learning_rate": 0.0001,
         "metrics": "accuracy",
         "epochs": 5
-    },
+    }
 }
  
 # Send a POST request to create a new execution
