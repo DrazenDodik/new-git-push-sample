@@ -26,9 +26,13 @@ new_exec_payload = {
     "commit": os.getenv('GITHUB_SHA'),
     "step": step_name
 }
+
+print(new_exec_payload)
+print(os.getenv('GITHUB_SHA'))
  
 # Send a POST request to create a new execution
 createExecutionResponse = requests.post('https://app.valohai.com/api/v0/executions/', data=new_exec_payload, headers=headers)
+print(createExecutionResponse)
 createExecutionResponse.raise_for_status()
  
 # Print the response you've received back
