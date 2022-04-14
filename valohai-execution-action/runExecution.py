@@ -25,7 +25,7 @@ new_exec_payload = {
     "project": project_id,
     "commit": os.getenv('GITHUB_SHA'),
     "step": step_name,
-    "inputs": {"dataset": "https://valohaidemo.blob.core.windows.net/mnist/preprocessed_mnist.npz"},
+    "inputs": {"dataset": "https://valohaidemo.blob.core.windows.net/mnist/preprocessed_mnist.npz" },
     "parameters": {
         "batch_size": 32,
         "image_width": 160,
@@ -38,13 +38,8 @@ new_exec_payload = {
 }
 
 print("Sending request:")
-print(new_exec_payload)
- 
-# Send a POST request to create a new execution
-createExecutionResponse = requests.post('https://app.valohai.com/api/v0/executions/', data=new_exec_payload, headers=headers)
+
+createExecutionResponse = requests.post('https://app.valohai.com/api/v0/executions/', json=new_exec_payload, headers=headers)
 print(createExecutionResponse.json())
+
 createExecutionResponse.raise_for_status()
- 
-# Print the response you've received back
-print('# API Response:\n')
-print(json.dumps(createExecutionResponse.json(), indent=4))
