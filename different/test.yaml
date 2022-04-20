@@ -1,0 +1,4 @@
+- step:
+    name: preprocess-dataset
+    image: python:3.9
+    command: echo "hello"
